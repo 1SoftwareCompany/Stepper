@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="One.StepTracking.Shared/One.StepTracking.Shared.csproj" Id="2c23446b-31e5-4716-8097-e0f85f0900bf" />
+  <Project Path="One.StepTracking/One.StepTracking.csproj" />
+</Solution>
