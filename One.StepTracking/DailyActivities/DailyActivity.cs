@@ -4,6 +4,8 @@ namespace One.StepTracking.DailyActivities;
 
 public class DailyActivity : AggregateRoot<DailyActivityState>
 {
+    internal DailyActivity() { }
+
     public DailyActivity(DailyActivityId id, Urn personId)
     {
         IEvent @event = new DailyActivityStarted(id, personId, DateTimeOffset.UtcNow);
