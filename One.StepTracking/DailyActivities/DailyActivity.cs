@@ -4,6 +4,8 @@ namespace One.StepTracking.DailyActivities;
 
 public class DailyActivity : AggregateRoot<DailyActivityState>
 {
+    internal DailyActivity() { }
+
     public DailyActivity(DailyActivityId id, Urn personId)
     {
         IEvent @event = new DailyActivityStarted(id, personId, DateTimeOffset.UtcNow);
@@ -19,7 +21,7 @@ public class DailyActivity : AggregateRoot<DailyActivityState>
     {
         if (state.CreatedAt.DayOfYear == DateTimeOffset.UtcNow.DayOfYear)
         {
-            IEvent @event = new PersonDailyStepsTracked(state.Id, state.PersonId, steps, DateTimeOffset.Now);
+            IEvent @event = new PersonDailyStepsTracked(state.Id, state.PersonId, steps);
             Apply(@event);
         }
         else
