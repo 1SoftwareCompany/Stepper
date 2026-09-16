@@ -23,7 +23,7 @@ public class When_the_day_has_changed
 
         dailyActivity = Aggregate<DailyActivity>.FromHistory(stream => stream
             .AddEvent(new DailyActivityStarted(id, person, yesterday))
-            .AddEvent(new PersonDailyStepsTracked(id, person, 10, yesterday)));
+            .AddEvent(new PersonDailyStepsTracked(id, person, 10)));
     };
 
     Because of = () => dailyActivity.TrackStep();

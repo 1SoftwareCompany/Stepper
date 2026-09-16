@@ -27,7 +27,7 @@ public class When_tracking_a_single_step
 
     It should_publish_the_steps_tracked_event = () => dailyActivity.IsEventPublished<PersonDailyStepsTracked>().ShouldBeTrue();
 
-    It should_have_the_correct_step_count_in_event = () => 
+    It should_have_the_correct_step_count_in_event = () =>
         dailyActivity.RootState<DailyActivityState>().StepCount.ShouldEqual(1);
 }
 
@@ -70,7 +70,7 @@ public class When_tracking_steps_after_aggregation
 
         dailyActivity = Aggregate<DailyActivity>.FromHistory(stream => stream
             .AddEvent(new DailyActivityStarted(id, person, DateTimeOffset.UtcNow))
-            .AddEvent(new PersonDailyStepsTracked(id, person, firstTrack, DateTimeOffset.UtcNow)));
+            .AddEvent(new PersonDailyStepsTracked(id, person, firstTrack)));
     };
 
     Because of = () => dailyActivity.TrackSteps(secondTrack);

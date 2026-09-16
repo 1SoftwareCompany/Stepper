@@ -8,12 +8,12 @@ public sealed class PersonDailyStepsTracked : IEvent
 {
     public PersonDailyStepsTracked() { }
 
-    public PersonDailyStepsTracked(DailyActivityId id, Urn personId, int stepsTracked, DateTimeOffset timestamp)
+    public PersonDailyStepsTracked(DailyActivityId id, Urn personId, int stepsTracked)
     {
         Id = id;
         PersonId = personId;
         StepsTracked = stepsTracked;
-        Timestamp = timestamp;
+        Timestamp = DateTimeOffset.UtcNow;
     }
 
     [DataMember(Order = 1)]

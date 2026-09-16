@@ -21,7 +21,7 @@ public class DailyActivity : AggregateRoot<DailyActivityState>
     {
         if (state.CreatedAt.DayOfYear == DateTimeOffset.UtcNow.DayOfYear)
         {
-            IEvent @event = new PersonDailyStepsTracked(state.Id, state.PersonId, steps, DateTimeOffset.Now);
+            IEvent @event = new PersonDailyStepsTracked(state.Id, state.PersonId, steps);
             Apply(@event);
         }
         else
